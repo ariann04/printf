@@ -6,7 +6,7 @@
 /*   By: tblagoev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:46:21 by tblagoev          #+#    #+#             */
-/*   Updated: 2023/12/21 17:27:40 by tblagoev         ###   ########.fr       */
+/*   Updated: 2023/12/21 19:13:52 by tblagoev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	print_format(char specifier, va_list ap)
 	else if (specifier == 'd' || specifier == 'i')
 		count += print_integer((long)va_arg(ap, int), 10, H_L_BASE);
 	else if (specifier == 'x')
-		count += print_digit(va_arg(ap, unsigned int), 16, H_L_BASE);
+		count += print_digit((long)va_arg(ap, unsigned int), 16, H_L_BASE);
 	else if (specifier == 'X')
-		count += print_digit((long)va_arg(ap, unsigned int), 16, H_U_BASE);
+		count += print_digit_alt((long)va_arg(ap, unsigned int), 16, H_U_BASE);
 	else if (specifier == 'u')
 		count += print_unsigneddecimal((unsigned int)va_arg(ap, unsigned int),
 				10, H_L_BASE);

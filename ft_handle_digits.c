@@ -6,7 +6,7 @@
 /*   By: tblagoev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:20:06 by tblagoev          #+#    #+#             */
-/*   Updated: 2023/12/21 17:27:11 by tblagoev         ###   ########.fr       */
+/*   Updated: 2023/12/21 19:13:48 by tblagoev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,4 @@ int	print_integer(long n, va_list base)
 	}
 }
 
-i
+int print_digit(unsigned int, )
