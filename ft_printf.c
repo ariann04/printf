@@ -6,7 +6,7 @@
 /*   By: tblagoev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:46:21 by tblagoev          #+#    #+#             */
-/*   Updated: 2023/12/21 19:13:52 by tblagoev         ###   ########.fr       */
+/*   Updated: 2023/12/27 15:44:39 by ls               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,18 @@ int	print_format(char specifier, va_list ap)
 
 	count = 0;
 	if (specifier == 'c')
-	{
-		c = va_arg(ap, int);
-		count += write(1, &c, 1);
-	}
+		count += print_char(va_arg(ap, int));
 	else if (specifier == 's')
 		count += print_str(va_arg(ap, char *));
 	else if (specifier == 'd' || specifier == 'i')
-		count += print_integer((long)va_arg(ap, int), 10, H_L_BASE);
+		count += print_integer((long)va_arg(ap, int), 10, D_L_BASE);
 	else if (specifier == 'x')
 		count += print_digit((long)va_arg(ap, unsigned int), 16, H_L_BASE);
 	else if (specifier == 'X')
 		count += print_digit_alt((long)va_arg(ap, unsigned int), 16, H_U_BASE);
 	else if (specifier == 'u')
-		count += print_unsigneddecimal((unsigned int)va_arg(ap, unsigned int),
-				10, H_L_BASE);
+		count += print_unsigned_decimal((unsigned int)va_arg(ap, unsigned int),
+				10, D_L_BASE);
 	else if (specifier == '%')
 		return (write(1, "%", 1));
 	else if (specifier == 'p')
