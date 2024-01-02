@@ -1,9 +1,8 @@
 NAME = libftprintf.a
 SRCS = \
-	   ft_handle_chars.c \
-	   ft_handle_digits.c \
-	   ft_printf.c \
-
+		ft_print.c \
+		ft_handle_chars.c \
+		ft_handle_digits.c \
 OBJS = $(SRCS:.c=.o)
 
 CC = gcc

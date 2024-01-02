@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblagoev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ls <marvin@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/01 13:37:51 by tblagoev          #+#    #+#             */
-/*   Updated: 2023/12/27 15:56:52 by ls               ###   ########.fr       */
+/*   Created: 2023/12/28 17:23:13 by ls                #+#    #+#             */
+/*   Updated: 2023/12/28 21:21:37 by ls               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
-# define D_L_BASE "0123456789"
-# define H_L_BASE "0123456789abcdef"
-# define H_U_BASE "0123456789ABCDEF"
-
-#include <stdarg.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include <stdarg.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 int	print_char(int c);
 int	print_str(char *str);

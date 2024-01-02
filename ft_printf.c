@@ -6,11 +6,11 @@
 /*   By: tblagoev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:46:21 by tblagoev          #+#    #+#             */
-/*   Updated: 2023/12/27 15:44:39 by ls               ###   ########.fr       */
+/*   Updated: 2023/12/28 21:22:08 by ls               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	print_format(char specifier, va_list ap)
 {
@@ -22,18 +22,18 @@ int	print_format(char specifier, va_list ap)
 	else if (specifier == 's')
 		count += print_str(va_arg(ap, char *));
 	else if (specifier == 'd' || specifier == 'i')
-		count += print_integer((long)va_arg(ap, int), 10, D_L_BASE);
+		count += print_integer((long)va_arg(ap, int), 10);
 	else if (specifier == 'x')
-		count += print_digit((long)va_arg(ap, unsigned int), 16, H_L_BASE);
+		count += print_digit((long)va_arg(ap, unsigned int), 16);
 	else if (specifier == 'X')
-		count += print_digit_alt((long)va_arg(ap, unsigned int), 16, H_U_BASE);
+		count += print_digit_alt((long)va_arg(ap, unsigned int), 16);
 	else if (specifier == 'u')
 		count += print_unsigned_decimal((unsigned int)va_arg(ap, unsigned int),
-				10, D_L_BASE);
+				10);
 	else if (specifier == '%')
 		return (write(1, "%", 1));
-	else if (specifier == 'p')
-		count += print_mem((unsigned long)va_arg(ap, void *), 16, H_L_BASE);
+	/*else if (specifier == 'p')
+		count += print_mem((unsigned long)va_arg(ap, void *), 16);*/
 	return (count);
 }
 
@@ -46,23 +46,25 @@ int	ft_printf(char const *format, ...)
 	count = 0;
 	while (*format)
 	{
-		if (format == '%')
+		if (*format == '%')
 			count += print_format(*(++format), ap);
 		else
 			count += write (1, format, 1);
 		++format;
 	}
 	va_end(ap);
-	return count;
+	return (count);
 }
 
-int	main()
+/*int	main()
 {
-	int	count;
+	unsigned int	number = -1234;
+	int				base = 10;
 
-	count = ft_printf("Hello %s\n", "John");
-	printf("The chars writeen are %d\n", count);
-}
+	print_unsigned_decimal(number, base);
+	printf("%u", number);
+	printf("\n");
+}*/
 
 /*int	average(int n, ...)
 {

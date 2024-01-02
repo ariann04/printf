@@ -3,20 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_chars.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tblagoev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ls <marvin@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 14:45:13 by tblagoev          #+#    #+#             */
-/*   Updated: 2023/12/27 14:23:53 by ls               ###   ########.fr       */
+/*   Created: 2023/12/31 13:15:30 by ls                #+#    #+#             */
+/*   Updated: 2023/12/31 13:21:02 by ls               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintft.h"
+#include "ft_printf.h"
+
 int	print_char(int c)
 {
 	return (write(1, &c, 1));
 }
 
-int	print_str(char *str)
+int	print(char *str)
 {
 	int	count;
 
@@ -29,5 +30,3 @@ int	print_str(char *str)
 	}
 	return (count);
 }
-
-
