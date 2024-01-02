@@ -6,7 +6,7 @@
 /*   By: tblagoev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:20:06 by tblagoev          #+#    #+#             */
-/*   Updated: 2023/12/31 13:46:58 by ls               ###   ########.fr       */
+/*   Updated: 2024/01/02 21:09:38 by ls               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,26 +79,19 @@ int	print_unsigned_decimal(unsigned int n, int base)
 
 int	print_mem(unsigned long address, int base)
 {
-	char *symbols;
-	
+	static int	count;
+	char		*symbols;
+
+	count = 0;
 	symbols = "0123456789abcdef";
-	write(1, "0x", 2);
-	if (address == 0)
-	return write(1, "0", 1);
-	int count = 0;
-	char buffer[20];
-	while (address > 0)
+	if (address >= (unsigned long)base)
 	{
-		buffer[count] = symbols[address % base];
-		address /= base;
-		count++;
+		print_mem(address / base, base);
+		address = address % base;
 	}
-
-	for (int i = count - 1; i >= 0; i--)
-									    {
-											        write(1, &buffer[i], 1);
-													    }
-
-								    return count + 2;  // Suma 2 para contar los dos caracteres del prefijo "0x"
+	if (count == 0)
+		count += write(1, "0x", 2);
+	count++;
+	write(1, &symbols[address], 1);
+	return (count);
 }
-

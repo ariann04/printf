@@ -1,8 +1,8 @@
 NAME = libftprintf.a
-SRCS = \
-		ft_print.c \
-		ft_handle_chars.c \
-		ft_handle_digits.c \
+SRCS = ft_printf.c \
+	   ft_handle_chars.c \
+	   ft_handle_digits.c \
+
 OBJS = $(SRCS:.c=.o)
 
 CC = gcc
@@ -14,7 +14,7 @@ $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
-%.o: %.c
+%.o: %.c ft_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

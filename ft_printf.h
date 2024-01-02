@@ -6,7 +6,7 @@
 /*   By: ls <marvin@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 17:23:13 by ls                #+#    #+#             */
-/*   Updated: 2023/12/28 21:21:37 by ls               ###   ########.fr       */
+/*   Updated: 2024/01/02 19:06:19 by ls               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	print_digit(unsigned int n, int base);
 int	print_digit_alt(unsigned int n, int base);
 int	print_unsigned_decimal(unsigned int n, int base);
 int	print_format(char specifier, va_list ap);
+int	print_mem(unsigned long address, int base);
 int	ft_printf(char const *format, ...);
 
 #endif

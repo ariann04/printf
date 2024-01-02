@@ -6,7 +6,7 @@
 /*   By: tblagoev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:46:21 by tblagoev          #+#    #+#             */
-/*   Updated: 2023/12/28 21:22:08 by ls               ###   ########.fr       */
+/*   Updated: 2024/01/02 19:20:09 by ls               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ int	print_format(char specifier, va_list ap)
 				10);
 	else if (specifier == '%')
 		return (write(1, "%", 1));
-	/*else if (specifier == 'p')
-		count += print_mem((unsigned long)va_arg(ap, void *), 16);*/
+	else if (specifier == 'p')
+		count += print_mem((unsigned long)va_arg(ap, void *), 16);
+	else
+		return (write(1, &specifier, 1));
 	return (count);
 }
 
@@ -64,9 +66,9 @@ int	ft_printf(char const *format, ...)
 	print_unsigned_decimal(number, base);
 	printf("%u", number);
 	printf("\n");
-}*/
+}
 
-/*int	average(int n, ...)
+int	average(int n, ...)
 {
 	va_list	ap;
 	int		total;
